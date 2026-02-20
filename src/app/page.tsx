@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Database, Shield, Zap, ChevronRight, Github, Code2, Network } from 'lucide-react';
+import { Database, Shield, Zap, ChevronRight, Github, Code2, Network, Plus, Rocket } from 'lucide-react';
 import React from 'react';
 import Image from 'next/image';
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -249,6 +249,75 @@ export default function Home() {
                   Algorithm Documentation
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="mb-40 relative z-10 max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">How it works.</h2>
+            <p className="text-black/50 dark:text-white/50 text-lg">The architecture behind autonomous connection.</p>
+          </div>
+
+          <div className="space-y-4">
+            {/* FAQ 1 */}
+            <details className="group glass rounded-2xl border border-black/5 dark:border-white/5 overflow-hidden open:border-alter-purple/30 transition-colors duration-300">
+              <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-lg hover:text-alter-purple transition-colors">
+                Is my data actually private?
+                <Plus className="w-5 h-5 text-black/40 dark:text-white/40 group-open:rotate-45 group-open:text-alter-purple transition-transform duration-300" />
+              </summary>
+              <div className="px-6 pb-6 text-black/60 dark:text-white/60 leading-relaxed text-sm">
+                Yes. Traditional dating apps upload your entire plaintext history to a centralized database. Alter processes your deeply personal interactions (like your voice interview) on your device&apos;s Secure Enclave. The global network only ever sees an encrypted 3072-dimensional math vector representing your &quot;vibe.&quot;
+              </div>
+            </details>
+
+            {/* FAQ 2 */}
+            <details className="group glass rounded-2xl border border-black/5 dark:border-white/5 overflow-hidden open:border-alter-purple/30 transition-colors duration-300">
+              <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-lg hover:text-alter-purple transition-colors">
+                Do I have to chat with an AI?
+                <Plus className="w-5 h-5 text-black/40 dark:text-white/40 group-open:rotate-45 group-open:text-alter-purple transition-transform duration-300" />
+              </summary>
+              <div className="px-6 pb-6 text-black/60 dark:text-white/60 leading-relaxed text-sm">
+                Only once. During onboarding, you complete a dynamic 5-minute audio interview with the AI so it can learn your personality, tone, and dealbreakers. After that, your agent scouts the network in the background, only alerting you when it finds a human match with a vector similarity &gt; 90%.
+              </div>
+            </details>
+
+            {/* FAQ 3 */}
+            <details className="group glass rounded-2xl border border-black/5 dark:border-white/5 overflow-hidden open:border-alter-purple/30 transition-colors duration-300">
+              <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-lg hover:text-alter-purple transition-colors">
+                How does the Vedic astrology scoring work?
+                <Plus className="w-5 h-5 text-black/40 dark:text-white/40 group-open:rotate-45 group-open:text-alter-purple transition-transform duration-300" />
+              </summary>
+              <div className="px-6 pb-6 text-black/60 dark:text-white/60 leading-relaxed text-sm">
+                The Alter Matchmaker evaluates candidates using a hybrid formula: 65% cosine vector similarity (personality, aesthetics, text) and 35% Vedic astrology (Guna Milan, Nakshatra, and Kuta computations). This maps ancient deterministic compatibility onto modern LLM-driven vibe analysis.
+              </div>
+            </details>
+          </div>
+        </section>
+
+        {/* Developer Ecosystem CTA */}
+        <section className="mb-32 relative z-10 text-center max-w-2xl mx-auto">
+          <div className="inline-flex items-center justify-center p-4 bg-alter-purple/10 rounded-full mb-6">
+            <Rocket className="w-8 h-8 text-alter-purple" />
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight mb-4">Build the future of connection.</h2>
+          <p className="text-black/60 dark:text-white/60 text-lg mb-8">
+            Alter Protocol will soon open its doors to developers. Create new prompt extensions, host your own matching engines, and contribute to the open compatibility layer.
+          </p>
+
+          <div className="relative inline-block group">
+            <button
+              disabled
+              className="px-8 py-4 rounded-full font-medium bg-black/5 dark:bg-white/5 text-black/40 dark:text-white/40 border border-black/10 dark:border-white/10 cursor-not-allowed uppercase tracking-wider text-sm transition-all group-hover:bg-black/10 dark:group-hover:bg-white/10"
+            >
+              Contribute Now
+            </button>
+
+            {/* Tooltip */}
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-alter-purple text-white text-xs font-bold rounded opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all pointer-events-none whitespace-nowrap shadow-lg">
+              Coming Soon
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-alter-purple rotate-45"></div>
             </div>
           </div>
         </section>
