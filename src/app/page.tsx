@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronRight, HeartHandshake, Shield, Sparkles, Network, Plus } from 'lucide-react';
+import { ChevronRight, HeartHandshake, Shield, Sparkles, Network, Plus, BrainCircuit } from 'lucide-react';
 import React from 'react';
 import Image from 'next/image';
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -138,16 +138,16 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {/* Audio Interview Card (Span 2 cols on tablet/large screens) */}
+            {/* Audio Interview Card */}
             <motion.div
               whileHover={{ y: -5 }}
-              className="glass rounded-3xl p-10 md:col-span-2 relative overflow-hidden group"
+              className="glass rounded-3xl p-10 relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-alter-lightpurple/10 rounded-full blur-[60px] -mr-20 -mt-20 group-hover:bg-alter-lightpurple/20 transition-colors"></div>
               <Sparkles className="w-10 h-10 text-alter-purple mb-6" />
-              <h3 className="text-2xl font-semibold mb-3">The Audio Interview</h3>
-              <p className="text-black/60 dark:text-white/60 leading-relaxed max-w-md">
-                No bios to write. Simply talk to your AI in a natural, voice-first interview. The system learns your essence, your tone, and what truly matters to you.
+              <h3 className="text-2xl font-semibold mb-3">Dynamic Interview</h3>
+              <p className="text-black/60 dark:text-white/60 leading-relaxed text-sm">
+                No bios to write. Have a fluid, two-way voice conversation with your Agent. It learns your core beliefs, daily habits, and intimacy needs all by itself.
               </p>
             </motion.div>
 
@@ -163,6 +163,19 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-3">The AI Dossier</h3>
               <p className="text-black/60 dark:text-white/60 text-sm leading-relaxed">
                 Your voice and photos are transformed into a high-dimensional persona. This encrypted dossier represents you in the matchmaking ecosystem.
+              </p>
+            </motion.div>
+
+            {/* The Memory Vault */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="glass rounded-3xl p-10 relative overflow-hidden group md:col-span-1"
+            >
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-alter-green/10 rounded-full blur-[50px] group-hover:bg-alter-green/20 transition-colors"></div>
+              <BrainCircuit className="w-10 h-10 text-alter-green mb-6 relative z-10" />
+              <h3 className="text-xl font-semibold mb-3 relative z-10">The Memory Vault</h3>
+              <p className="text-black/60 dark:text-white/60 text-sm leading-relaxed relative z-10">
+                Humans are dynamic. Text your agent a stray thought, a new dealbreaker, or something you loved about a recent date. Your agent remembers it forever, constantly refining who it looks for.
               </p>
             </motion.div>
 
