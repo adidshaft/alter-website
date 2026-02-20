@@ -2,19 +2,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-alter-bg: #000000;
-  --color-alter-purple: #9D00FF;
-  --color-alter-lightpurple: #C77DFF;
-  --color-alter-deeppurple: #3C096C;
-  --color-alter-green: #00FF41;
-  --color-alter-red: #FF003C;
-  --color-alter-amber: #FFB000;
-  --color-alter-gray: #1E1E1E;
+  --color-alter-bg: var(--background);
+  --color-alter-purple: #7345E6;
+  --color-alter-lightpurple: #A673FF;
+  --color-alter-deeppurple: #331A66;
+  --color-alter-green: #4DD980;
+  --color-alter-red: #FF4C4C;
+  --color-alter-amber: #FFBF33;
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 
   --animate-marquee: marquee 35s linear infinite;
-  --animate-pulse-fast: pulse-fast 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
   @keyframes marquee {
     0% {
@@ -25,25 +23,22 @@
       transform: translateX(-100%);
     }
   }
-
-  @keyframes pulse-fast {
-
-    0%,
-    100% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: .2;
-    }
-  }
 }
 
 :root {
-  /* Force dark mode entirely */
-  --background: #000000;
-  --foreground: #00FF41;
-  --border: #333333;
+  --background: #f8f9fa;
+  --foreground: #171717;
+  --glass: rgb(255 255 255 / 0.7);
+  --border: rgb(0 0 0 / 0.1);
+  --glass-hover: rgb(255 255 255 / 0.9);
+}
+
+.dark {
+  --background: #0D0A1A;
+  --foreground: #ededed;
+  --glass: rgb(255 255 255 / 0.05);
+  --border: rgb(255 255 255 / 0.1);
+  --glass-hover: rgb(255 255 255 / 0.1);
 }
 
 body {
@@ -53,15 +48,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Brutalist specific utilities */
-@utility brutal-border {
+/* Glassmorphism utilities */
+@utility glass {
+  background-color: var(--glass);
   border: 1px solid var(--border);
-  background-color: #0A0A0A;
-}
-
-@utility bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(0, 255, 65, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+  backdrop-filter: blur(12px);
 }
