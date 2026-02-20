@@ -222,7 +222,7 @@ export default function Home() {
               </h2>
 
               <p className="text-black/60 dark:text-white/60 text-lg md:text-xl leading-relaxed mb-10">
-                While Alter is currently optimized for finding your life partner, the underlying matching engine is built to understand human connection. Soon, your Agent will be able to scout for friends, co-founders, and collaborators with the same precision.
+                While Alter is currently optimized for finding your partner, the underlying matching engine is built to understand human connection. Soon, your Agent will be able to scout for friends, co-founders, and collaborators with the same precision.
               </p>
             </div>
           </div>
