@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Apple, ChevronRight, HeartHandshake, Shield, Sparkles } from 'lucide-react';
+import { ChevronRight, HeartHandshake, Shield, Sparkles } from 'lucide-react';
 import React from 'react';
 import Image from 'next/image';
 
@@ -76,13 +76,15 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
             >
-              <button className="w-full sm:w-auto px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-colors flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                <Apple size={24} className="-mt-1" fill="currentColor" />
-                <span className="flex flex-col items-start leading-tight">
-                  <span className="text-[10px] font-medium opacity-80">Download on the</span>
-                  <span className="text-base font-bold">App Store</span>
-                </span>
-              </button>
+              <a href="#" className="inline-block hover:opacity-80 transition-opacity">
+                <Image
+                  src="/images/app-store-badge.svg"
+                  alt="Download on the App Store"
+                  width={150}
+                  height={50}
+                  className="h-[50px] w-auto"
+                />
+              </a>
               <div className="flex w-full sm:w-auto relative max-w-xs">
                 <input
                   type="email"
