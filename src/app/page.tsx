@@ -270,6 +270,91 @@ export default function Home() {
           </div>
         </section>
 
+        {/* App in Action - iPhone Mockups */}
+        <section className="mb-40 relative z-10 px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">The App in Action</h2>
+            <p className="text-black/50 dark:text-white/50 text-lg">A peek into the autonomous ecosystem.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-6xl mx-auto">
+            {/* Mockup 1: Training */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex flex-col items-center gap-6"
+            >
+              <div className="relative group p-4 glass rounded-[3rem] border border-black/5 dark:border-white/5 bg-white/5 backdrop-blur-3xl shadow-2xl transition hover:scale-[1.02] duration-500">
+                <Image
+                  src="/images/mockups/energy-orb.png"
+                  alt="Alter App - Training Agent"
+                  width={300}
+                  height={650}
+                  className="rounded-[2.2rem] shadow-2xl"
+                />
+              </div>
+              <div className="text-center space-y-2">
+                <h3 className="text-xl font-semibold">1. Training the Agent</h3>
+                <p className="text-sm text-black/50 dark:text-white/40 max-w-[250px]">
+                  Your personality is captured into a high-dimensional, encrypted persona.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Mockup 2: Scouting */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col items-center gap-6 md:-mt-12"
+            >
+              <div className="relative group p-4 glass rounded-[3rem] border border-alter-purple/20 bg-alter-purple/5 backdrop-blur-3xl shadow-[0_0_50px_rgba(115,69,230,0.15)] transition hover:scale-[1.02] duration-500">
+                <Image
+                  src="/images/mockups/agent-log.png"
+                  alt="Alter App - Agent Scouting Log"
+                  width={300}
+                  height={650}
+                  className="rounded-[2.2rem] shadow-2xl"
+                />
+              </div>
+              <div className="text-center space-y-2">
+                <h3 className="text-xl font-semibold text-alter-purple">2. Continuous Scouting</h3>
+                <p className="text-sm text-black/50 dark:text-white/40 max-w-[250px]">
+                  Agents negotiate 24/7 on your behalf, vetting compatibility in high fidelity.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Mockup 3: Matching */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col items-center gap-6"
+            >
+              <div className="relative group p-4 glass rounded-[3rem] border border-black/5 dark:border-white/5 bg-white/5 backdrop-blur-3xl shadow-2xl transition hover:scale-[1.02] duration-500">
+                <Image
+                  src="/images/mockups/match-reveal.png"
+                  alt="Alter App - Match Reveal"
+                  width={300}
+                  height={650}
+                  className="rounded-[2.2rem] shadow-2xl"
+                />
+              </div>
+              <div className="text-center space-y-2">
+                <h3 className="text-xl font-semibold">3. The 11:11 PM Reveal</h3>
+                <p className="text-sm text-black/50 dark:text-white/40 max-w-[250px]">
+                  Wake up to a perfect match with a full explanation of why they are the one.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Privacy Section */}
         <section className="text-center max-w-2xl mx-auto py-20 pb-32">
           <Shield className="w-12 h-12 mx-auto text-black/30 dark:text-white/30 mb-6" />
