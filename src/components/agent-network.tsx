@@ -17,27 +17,24 @@ export function AgentNetwork() {
     const containerRef = useRef<HTMLDivElement>(null);
     const requestRef = useRef<number>(null);
 
-    // Initialize nodes only on client
     useEffect(() => {
         if (!containerRef.current) return;
         const { clientWidth, clientHeight } = containerRef.current;
 
-        // Reduce node count on smaller screens
-        const nodeCount = clientWidth < 768 ? 15 : 30;
+        const nodeCount = clientWidth < 768 ? 40 : 80;
 
         const initialNodes = Array.from({ length: nodeCount }).map((_, i) => ({
             id: i,
             x: Math.random() * clientWidth,
             y: Math.random() * clientHeight,
-            vx: (Math.random() - 0.5) * 0.5, // Slow drifting speed
-            vy: (Math.random() - 0.5) * 0.5,
-            size: Math.random() * 4 + 2, // Size between 2px and 6px
+            vx: (Math.random() - 0.5) * 0.2, // Very slow drift
+            vy: (Math.random() - 0.5) * 0.2,
+            size: Math.random() * 2 + 1, // Tiny dots
         }));
 
         setNodes(initialNodes);
     }, []);
 
-    // Animation Loop
     const animate = () => {
         if (!containerRef.current) return;
         const { clientWidth, clientHeight } = containerRef.current;
@@ -46,7 +43,6 @@ export function AgentNetwork() {
             prevNodes.map(node => {
                 let { x, y, vx, vy } = node;
 
-                // Bounce off walls
                 if (x <= 0 || x >= clientWidth) vx *= -1;
                 if (y <= 0 || y >= clientHeight) vy *= -1;
 
@@ -68,12 +64,10 @@ export function AgentNetwork() {
         return () => cancelAnimationFrame(requestRef.current!);
     }, []);
 
-    // Calculate connections distances (only connect if close enough)
-    const getConnectionDistance = () => typeof window !== 'undefined' && window.innerWidth < 768 ? 100 : 150;
+    const getConnectionDistance = () => typeof window !== 'undefined' && window.innerWidth < 768 ? 80 : 120;
 
     return (
-        <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-40">
-            {/* Draw Lines */}
+        <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-20 dark:opacity-30">
             <svg className="absolute inset-0 w-full h-full">
                 {nodes.map((node, i) =>
                     nodes.slice(i + 1).map(otherNode => {
@@ -83,15 +77,15 @@ export function AgentNetwork() {
                         const maxDistance = getConnectionDistance();
 
                         if (distance < maxDistance) {
-                            const opacity = 1 - (distance / maxDistance);
+                            const opacity = (1 - (distance / maxDistance)) * 0.5;
                             return (
                                 <line
                                     key={`${node.id}-${otherNode.id}`}
                                     x1={node.x} y1={node.y}
                                     x2={otherNode.x} y2={otherNode.y}
                                     stroke="currentColor"
-                                    strokeWidth="1"
-                                    className="text-alter-purple/30 dark:text-alter-lightpurple/30"
+                                    strokeWidth="0.5"
+                                    className="text-alter-purple/20 dark:text-alter-purple/40"
                                     opacity={opacity}
                                 />
                             );
@@ -101,11 +95,10 @@ export function AgentNetwork() {
                 )}
             </svg>
 
-            {/* Draw Nodes */}
             {nodes.map(node => (
-                <motion.div
+                <div
                     key={node.id}
-                    className="absolute rounded-full bg-alter-purple dark:bg-alter-lightpurple"
+                    className="absolute rounded-full bg-alter-purple/40 dark:bg-alter-purple/60 shadow-[0_0_10px_rgba(124,58,237,0.3)]"
                     style={{
                         left: node.x,
                         top: node.y,
@@ -113,15 +106,6 @@ export function AgentNetwork() {
                         height: node.size,
                         marginLeft: -node.size / 2,
                         marginTop: -node.size / 2,
-                        boxShadow: `0 0 ${node.size * 2}px var(--alter-purple)`,
-                    }}
-                    animate={{
-                        opacity: [0.3, 0.8, 0.3], // Subtle pulsing effect on the dots
-                    }}
-                    transition={{
-                        duration: Math.random() * 3 + 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
                     }}
                 />
             ))}
