@@ -127,17 +127,23 @@ export default function Home() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-black/5 dark:bg-white/5 rounded-full blur-[40px] -mr-10 -mt-10"></div>
                 <h3 className="text-xl font-mono text-black/40 dark:text-white/40 mb-6 uppercase tracking-widest">The Burnout</h3>
                 <ul className="space-y-4 text-black/60 dark:text-white/60 text-lg leading-relaxed mix-blend-luminosity">
-                  <li className="flex items-start gap-3">
-                    <span className="opacity-50 mt-1">✕</span>
-                    Endless swiping through shallow, performative profiles built on just a few photos.
+                  <li className="flex items-start gap-4">
+                    <span className="opacity-50 mt-1 flex-shrink-0">✕</span>
+                    <div>
+                      Endless swiping through shallow, performative profiles built on just a few photos.
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="opacity-50 mt-1">✕</span>
-                    The mental exhaustion of starting over with &quot;hey, how was your weekend?&quot; 100 times.
+                  <li className="flex items-start gap-4">
+                    <span className="opacity-50 mt-1 flex-shrink-0">✕</span>
+                    <div>
+                      The mental exhaustion of starting over with &quot;hey, how was your weekend?&quot; 100 times.
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="opacity-50 mt-1">✕</span>
-                    Investing your time and emotional energy, only to hit a fundamental dealbreaker weeks later.
+                  <li className="flex items-start gap-4">
+                    <span className="opacity-50 mt-1 flex-shrink-0">✕</span>
+                    <div>
+                      Investing your time and emotional energy, only to hit a fundamental dealbreaker weeks later.
+                    </div>
                   </li>
                 </ul>
               </motion.div>
@@ -153,17 +159,23 @@ export default function Home() {
                 <div className="absolute bottom-0 right-0 w-48 h-48 bg-alter-purple/10 rounded-full blur-[50px]"></div>
                 <h3 className="text-xl font-mono text-alter-purple dark:text-alter-lightpurple mb-6 uppercase tracking-widest font-semibold">The Relief</h3>
                 <ul className="space-y-4 text-black/80 dark:text-white/80 text-lg leading-relaxed relative z-10">
-                  <li className="flex items-start gap-3">
-                    <span className="text-alter-purple mt-1">✓</span>
-                    <strong>You live your life.</strong> Your personal Matchmaker does the searching, respectfully filtering out incompatible matches.
+                  <li className="flex items-start gap-4">
+                    <span className="text-alter-purple mt-1 flex-shrink-0">✓</span>
+                    <div>
+                      <strong>You live your life.</strong> Your personal Matchmaker does the searching, respectfully filtering out incompatible matches.
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-alter-purple mt-1">✓</span>
-                    <strong>Deep alignment, assured.</strong> Your Agent ensures core beliefs and attachment styles match before you ever say hello.
+                  <li className="flex items-start gap-4">
+                    <span className="text-alter-purple mt-1 flex-shrink-0">✓</span>
+                    <div>
+                      <strong>Deep alignment, assured.</strong> Your Agent ensures core beliefs and attachment styles match before you ever say hello.
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-alter-purple mt-1">✓</span>
-                    <strong>Skip the small talk.</strong> Wake up to a hand-picked human connection, complete with a beautiful summary of exactly why you belong together.
+                  <li className="flex items-start gap-4">
+                    <span className="text-alter-purple mt-1 flex-shrink-0">✓</span>
+                    <div>
+                      <strong>Skip the small talk.</strong> Wake up to a hand-picked human connection, complete with a beautiful summary of exactly why you belong together.
+                    </div>
                   </li>
                 </ul>
               </motion.div>
@@ -175,21 +187,41 @@ export default function Home() {
         {/* Live Scout Marquee */}
         <section className="py-20 overflow-hidden relative border-y border-white/5 mb-32 -mx-6 px-6">
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-transparent to-[var(--background)] z-10 w-full pointer-events-none"></div>
-          <div className="flex gap-4 font-mono text-sm tracking-wider w-max animate-marquee">
-            {/* Double the logs for seamless looping */}
-            {[...agentLogs, ...agentLogs, ...agentLogs].map((log, i) => {
-              const isMatch = log.includes("harmony") || log.includes("shortlisted");
-              const isReject = log.includes("rejected");
-              const color = isMatch ? 'text-alter-green' : isReject ? 'text-alter-red' : 'text-alter-amber';
 
-              return (
-                <div key={i} className="flex items-center gap-3 px-8 text-black/60 dark:text-white/60 whitespace-nowrap">
-                  <span className="text-black/20 dark:text-white/20">&gt;</span>
-                  <span className={`${color} w-2 h-2 rounded-full animate-pulse`}></span>
-                  <span>{log}</span>
-                </div>
-              )
-            })}
+          <div className="flex font-mono text-[15px] tracking-wider min-w-full">
+            {/* First Set */}
+            <div className="flex w-max animate-marquee shrink-0">
+              {[...agentLogs, ...agentLogs, ...agentLogs].map((log, i) => {
+                const isMatch = log.includes("harmony") || log.includes("shortlisted");
+                const isReject = log.includes("rejected");
+                const color = isMatch ? 'text-alter-green' : isReject ? 'text-alter-red' : 'text-alter-amber';
+
+                return (
+                  <div key={i} className="flex items-center gap-4 px-10 text-black/80 dark:text-white/80 whitespace-nowrap">
+                    <span className="text-black/30 dark:text-white/30">&gt;</span>
+                    <span className={`${color} w-1.5 h-1.5 rounded-full animate-pulse`}></span>
+                    <span>{log}</span>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Duplicate Set for Seamless Loop */}
+            <div className="flex w-max animate-marquee shrink-0" aria-hidden="true">
+              {[...agentLogs, ...agentLogs, ...agentLogs].map((log, i) => {
+                const isMatch = log.includes("harmony") || log.includes("shortlisted");
+                const isReject = log.includes("rejected");
+                const color = isMatch ? 'text-alter-green' : isReject ? 'text-alter-red' : 'text-alter-amber';
+
+                return (
+                  <div key={i} className="flex items-center gap-4 px-10 text-black/80 dark:text-white/80 whitespace-nowrap">
+                    <span className="text-black/30 dark:text-white/30">&gt;</span>
+                    <span className={`${color} w-1.5 h-1.5 rounded-full animate-pulse`}></span>
+                    <span>{log}</span>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </section>
 
