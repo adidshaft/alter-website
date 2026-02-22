@@ -72,7 +72,7 @@ export default function Home() {
               </span>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight bg-clip-text text-transparent bg-gradient-to-b from-black to-black/60 dark:from-white dark:to-white/60">
                 Dating is exhausting.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-alter-purple to-alter-lightpurple">So we built someone to do it for you.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-alter-purple to-alter-lightpurple">So we built an AI Agent that does it for you.</span>
               </h1>
             </motion.div>
 
