@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alter | AI Matchmaking",
+  title: "Alter | AI Agent Matchmaker",
   description: "Agents over swiping. Let your AI Agent do the scouting.",
 };
 
